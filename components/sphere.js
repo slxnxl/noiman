@@ -4,7 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 
 export default function Sphere() {
     return(
-        <div id="canvas-container" className="absolute inset-0 z-0">
+        <div id="canvas-container" className="absolute inset-0 z-0 content_animate">
             <Canvas>
                 <mesh>
                     <sphereGeometry args={[1, 16, 16]} />
