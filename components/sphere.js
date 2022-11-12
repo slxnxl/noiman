@@ -1,22 +1,65 @@
-import { createRoot } from 'react-dom/client'
-import React, { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import React from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+
+function MyRotatingBox() {
+    const sphere = React.useRef();
+
+    useFrame(({ clock }) => {
+        const a = clock.getElapsedTime();
+        sphere.current.rotation.x = a;
+    });
+
+    return (
+        <mesh ref={sphere}>
+            <sphereGeometry args={[2, 128, 128]} />
+            <meshNormalMaterial></meshNormalMaterial>
+        </mesh>
+    );
+}
 
 export default function Sphere() {
-    return(
-        <div id="canvas-container" className="absolute inset-0 z-0 content_animate">
+    return (
+        <div  className="absolute inset-0 z-0 content_animate">
             <Canvas>
-                <mesh>
-                    <sphereGeometry args={[1, 16, 16]} />
-                </mesh>
+                <MyRotatingBox />
+                <ambientLight intensity={0.1} />
+                <directionalLight />
             </Canvas>
         </div>
-    )
-
+    );
 }
 
 
-
+// import { createRoot } from 'react-dom/client'
+// import React, { useRef, useState } from 'react'
+// import { Canvas, useFrame, extend } from '@react-three/fiber'
+//
+// function mySphere() {
+//     let sphere = React.useRef();
+//     useFrame(({ clock }) => {
+//         const a = clock.getElapsedTime();
+//         sphere.current.rotation.x = a;
+//         console.log(a)
+//     });
+//
+//     return(
+//                 <mesh ref={sphere}>
+//                     <sphereGeometry args={[2, 128, 128]} />
+//                     <meshNormalMaterial></meshNormalMaterial>
+//                 </mesh>
+//     )
+// }
+//
+// export default function Sphere() {
+//     return(
+//         <div id="canvas-container" className="absolute inset-0 z-0 content_animate">
+//         <Canvas>
+//             <mySphere>
+//             </mySphere>
+//         </Canvas>
+//         </div>
+//     )
+// }
 
 //
 // const renderer = new THREE.WebGLRenderer({ canvas : document.getElementById('canvas'), antialias:true});
