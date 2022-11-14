@@ -1,53 +1,59 @@
 import React from "react";
-import {Canvas, useFrame} from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import {
-    MeshDistortMaterial,
-    MeshWobbleMaterial,
-    Sphere
+  GradientTexture,
+  MeshDistortMaterial,
+  Sphere
 } from "@react-three/drei";
 
 function MyRotatingBox() {
-    // const sphere = React.useRef();
-    // let p = sphere.vertices;
-    // console.log(sphere);
-    // useFrame(({ clock }) => {
-    //     const time = performance.now() * 0.0017;
-    //     sphere.current.rotation.x = clock.getElapsedTime();
-    //     const k = 1;
-    //     for (let i = 0; i < p.length(); i++) {
-    //         p.normalize().multiplyScalar(1 + 0.3 * noise.perlin3(p.x * k + time, p.y * k, p.z * k));
-    //     }
-    //         sphere.geometry.computeVertexNormals();
-    //         sphere.geometry.normalsNeedUpdate = true;
-    //         sphere.geometry.verticesNeedUpdate = true;
-    // });
+  // const sphere = React.useRef();
+  // let p = sphere.vertices;
+  // console.log(sphere);
+  // useFrame(({ clock }) => {
+  //     const time = performance.now() * 0.0017;
+  //     sphere.current.rotation.x = clock.getElapsedTime();
+  //     const k = 1;
+  //     for (let i = 0; i < p.length(); i++) {
+  //         p.normalize().multiplyScalar(1 + 0.3 * noise.perlin3(p.x * k + time, p.y * k, p.z * k));
+  //     }
+  //         sphere.geometry.computeVertexNormals();
+  //         sphere.geometry.normalsNeedUpdate = true;
+  //         sphere.geometry.verticesNeedUpdate = true;
+  // });
 
-    return (
-            <Sphere visible position={[3, 0, 0]} args={[1, 16, 200]}>
-                <MeshDistortMaterial
-                    color="#00A38"
-                    attach="material"
-                    distort={0.3} // Strength, 0 disables the effect (default=1)
-                    speed={2} // Speed (default=1)
-                    roughness={0}
-                />
-            {/*<sphereGeometry args={[2, 128, 128]} />*/}
-            {/*<boxGeometry attach="geometry" args={[1, 1, 1]} />*/}
-            {/*<meshNormalMaterial></meshNormalMaterial>*/}
-            </Sphere>
-    );
+  return (
+    <Sphere visible position={[0, 0, 0]} args={[1.7, 200, 200]}>
+      <MeshDistortMaterial
+        color=""
+        attach="material"
+        distort={0.2} // Strength, 0 disables the effect (default=1)
+        speed={2} // Speed (default=1)
+        roughness={0.3}
+      >
+        <GradientTexture
+          stops={[0.2, 0.6, 1]} // As many stops as you want
+          colors={['#12c2e9', '#c471ed', '#f64f59']} // Colors need to match the number of stops
+          size={1024} // Size is optional, default = 1024
+        />
+      </MeshDistortMaterial>
+      {/*<sphereGeometry args={[2, 128, 128]} />*/}
+      {/*<boxGeometry attach="geometry" args={[1, 1, 1]} />*/}
+      {/*<meshNormalMaterial></meshNormalMaterial>*/}
+    </Sphere>
+  );
 }
 
 export default function Sphere1() {
-    return (
-        <div  className="absolute inset-0 z-0 content_animate">
-            <Canvas>
-                <MyRotatingBox />
-                <ambientLight intensity={0.3} />
-                <directionalLight />
-            </Canvas>
-        </div>
-    );
+  return (
+    <div className="absolute inset-0 z-0 content_animate">
+      <Canvas>
+        <MyRotatingBox />
+        <ambientLight intensity={0.9} />
+        <directionalLight />
+      </Canvas>
+    </div>
+  );
 }
 
 
