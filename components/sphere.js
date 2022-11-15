@@ -1,11 +1,13 @@
 import React from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
-  GradientTexture,
-  MeshDistortMaterial,
-  Sphere
+    AccumulativeShadows,
+    GradientTexture,
+    MeshDistortMaterial, MeshReflectorMaterial, RandomizedLight,
+    Sphere
 } from "@react-three/drei";
 
+//TODO может усложить потом + радиус для мобилок
 function MyRotatingBox() {
   // const sphere = React.useRef();
   // let p = sphere.vertices;
@@ -25,6 +27,8 @@ function MyRotatingBox() {
   return (
     <Sphere visible position={[0, 0, 0]} args={[1.7, 200, 200]}>
       <MeshDistortMaterial
+          castShadow
+          receiveShadow
         color=""
         attach="material"
         distort={0.2} // Strength, 0 disables the effect (default=1)
@@ -36,7 +40,32 @@ function MyRotatingBox() {
           colors={['#12c2e9', '#c471ed', '#f64f59']} // Colors need to match the number of stops
           size={1024} // Size is optional, default = 1024
         />
+
+    {/*      <MeshReflectorMaterial*/}
+    {/*          blur={[0, 0]} // Blur ground reflections (width, heigt), 0 skips blur*/}
+    {/*          mixBlur={0} // How much blur mixes with surface roughness (default = 1)*/}
+    {/*          mixStrength={1} // Strength of the reflections*/}
+    {/*          mixContrast={1} // Contrast of the reflections*/}
+    {/*          resolution={256} // Off-buffer resolution, lower=faster, higher=better quality, slower*/}
+    {/*          mirror={0} // Mirror environment, 0 = texture colors, 1 = pick up env colors*/}
+    {/*          depthScale={0} // Scale the depth factor (0 = no depth, default = 0)*/}
+    {/*          minDepthThreshold={0.9} // Lower edge for the depthTexture interpolation (default = 0)*/}
+    {/*          maxDepthThreshold={1} // Upper edge for the depthTexture interpolation (default = 0)*/}
+    {/*          depthToBlurRatioBias={0.25} // Adds a bias factor to the depthTexture before calculating the blur amount [blurFactor = blurTexture * (depthTexture + bias)]. It accepts values between 0 and 1, default is 0.25. An amount > 0 of bias makes sure that the blurTexture is not too sharp because of the multiplication with the depthTexture*/}
+    {/*          distortion={1} // Amount of distortion based on the distortionMap texture*/}
+    {/*          // distortionMap={distortionTexture} // The red channel of this texture is used as the distortion map. Default is null*/}
+    {/*          debug={0} /* Depending on the assigned value, one of the following channels is shown:*/}
+    {/*  0 = no debug*/}
+    {/*  1 = depth channel*/}
+    {/*  2 = base channel*/}
+    {/*  3 = distortion channel*/}
+    {/*  4 = lod channel (based on the roughness)*/}
+    */
+    {/*          reflectorOffset={0.2} // Offsets the virtual camera that projects the reflection. Useful when the reflective surface is some distance from the object's origin (default = 0)*/}
+    {/*      />*/}
+
       </MeshDistortMaterial>
+
       {/*<sphereGeometry args={[2, 128, 128]} />*/}
       {/*<boxGeometry attach="geometry" args={[1, 1, 1]} />*/}
       {/*<meshNormalMaterial></meshNormalMaterial>*/}
@@ -47,10 +76,10 @@ function MyRotatingBox() {
 export default function Sphere1() {
   return (
     <div className="absolute inset-0 z-0 content_animate">
-      <Canvas>
-        <MyRotatingBox />
-        <ambientLight intensity={0.9} />
-        <directionalLight />
+      <Canvas shadows>
+        <MyRotatingBox autoRotate />
+          <ambientLight intensity={0.8} />
+         <directionalLight  />
       </Canvas>
     </div>
   );
