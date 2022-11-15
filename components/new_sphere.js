@@ -46,7 +46,7 @@ export default function Scene({ setBg }) {
             coat: mode && !hovered ? 0.02 : 1,
             ambient: mode && !hovered ? 1.5 : 0.5,
             env: mode && !hovered ? 0.275 : 1,
-            color: hovered ? '#E8B059' : mode ? '#202020' : 'white',
+            color: hovered ? '#000000' : mode ? '#202020' : 'white',
             config: (n) => n === 'wobble' && hovered && { mass: 2, tension: 1000, friction: 10 }
         },
         [mode, hovered]
@@ -68,9 +68,9 @@ export default function Scene({ setBg }) {
                     onClick={() => {
                         // Toggle mode between dark and bright
                         setMode(!mode)
-                        setBg({ background: !mode ? '#202020' : '#f0f0f0', fill: !mode ? '#f0f0f0' : '#202020' })
+                        setBg({ background: !mode ? '#0d1010' : '#f0f0f0', fill: !mode ? '#f0f0f0' : '#202020' })
                     }}>
-                    <sphereBufferGeometry args={[1, 64, 64]} />
+                    <sphereBufferGeometry args={[1.5, 192, 192]} />
                     <AnimatedMaterial color={color} envMapIntensity={env} clearcoat={coat} clearcoatRoughness={0} metalness={0.1} />
                 </a.mesh>
                 <Environment preset="warehouse" />

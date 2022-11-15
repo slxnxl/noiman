@@ -7,7 +7,7 @@ export default function TitleText() {
         <div className="max-w-5xl flex flex-row justify-end">
             <div className="">
                 {/*<Sphere1></Sphere1>*/}
-                <div className="w-80 h-80 absolute inset-0 z-0">
+                <div className=" absolute inset-0 z-0">
                     <Canvas className="canvas " pixelRatio={[1, 2]}>
                     <Scene></Scene>
                 </Canvas></div>
