@@ -27,3 +27,9 @@ main {
 * {
   box-sizing: border-box;
 }
+
+.canvas {
+  order: 2;
+  flex: 1;
+  height: 100%;
+}
