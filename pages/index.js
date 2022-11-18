@@ -6,6 +6,7 @@ import TitleText from "../components/title_text";
 import InfoBlock from "../components/Info_block";
 import ProfileBlock from "../components/profile_block";
 import ProjectBlock from "../components/project_peview";
+import InfoBlockGrid from "../components/Info_block_grid";
 
 export default function Home() {
   return (
@@ -18,8 +19,9 @@ export default function Home() {
 
       <Header></Header>
       <main className={styles.main}>
-          <TitleText></TitleText>
+          {/* <TitleText></TitleText> */}
       </main>
+        <InfoBlockGrid/>
         <InfoBlock></InfoBlock>
         <ProfileBlock></ProfileBlock>
         <ProjectBlock></ProjectBlock>
