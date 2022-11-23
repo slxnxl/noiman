@@ -12,15 +12,7 @@ export default function TitleTextGrid() {
                 </div>
             <div className="col-start-2 col-span-4">
                 {/*<Sphere1></Sphere1>*/}
-<<<<<<< HEAD
                 <h1 className="text-6xl text-left font-light content_animate z-10 relative">Designer & art director creating scalable design solutions in branding, packaging and web design, striving for clarity, simplicity & logic.</h1>
-=======
-                <div className=" z-0">
-                    <Canvas className="canvas " pixelRatio={[1, 2]}>
-                        <Scene></Scene>
-                    </Canvas></div>
-                <h1 className="text-6xl text-left font-light content_animate z-10">Designer & art director creating scalable design solutions in branding, packaging and web design, striving for clarity, simplicity & logic.</h1>
->>>>>>> 96838cdcacaaa67242d822893afb7e65b057fa53
             </div>
         </div>
         // <div className="max-w-5xl flex flex-row justify-end">
