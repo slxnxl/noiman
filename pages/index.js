@@ -19,7 +19,7 @@ export default function Home() {
 
       <Header></Header>
       <main className={styles.main}>
-          {/* <TitleText></TitleText> */}
+          <TitleText></TitleText>
       </main>
         <InfoBlockGrid/>
         <InfoBlock></InfoBlock>
