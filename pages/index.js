@@ -25,8 +25,6 @@ export default function Home() {
           <TitleTextGrid/>
       </main>
         <InfoBlockGrid/>
-        <InfoBlock></InfoBlock>
-        <ProfileBlock></ProfileBlock>
         <ProjectBlock></ProjectBlock>
       <footer className={styles.footer}>
         футер
