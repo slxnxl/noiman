@@ -22,8 +22,12 @@ export default function Home() {
       {/* <Header></Header> */}
       <HeaderGrid/>
       <main className={styles.main}>
+<<<<<<< HEAD
           {/* <TitleText></TitleText> */}
           <TitleTextGrid/>
+=======
+          <TitleText></TitleText>
+>>>>>>> 916691f53e42fce4ef9f23c1e7ed279604873a1a
       </main>
         <InfoBlockGrid/>
         <InfoBlock></InfoBlock>

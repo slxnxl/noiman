@@ -20,7 +20,7 @@ export default function Scene({ setBg }) {
         document.body.style.cursor = hovered
             ? 'none'
             : `url('data:image/svg+xml;base64,${btoa(
-                '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="10" fill="#E8B059"/></svg>'
+                '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="10" fill="black"/></svg>'
             )}'), auto`
     }, [hovered])
 
@@ -54,9 +54,9 @@ export default function Scene({ setBg }) {
 
     return (
         <>
-            <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={75}>
+            <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={45}>
                 <a.ambientLight intensity={ambient} />
-                <a.pointLight ref={light} position-z={-15} intensity={env} color="#F8C069" />
+                <a.pointLight ref={light} position-z={-15} intensity={env} color="white" />
             </PerspectiveCamera>
             <Suspense fallback={null}>
                 <a.mesh
@@ -68,13 +68,13 @@ export default function Scene({ setBg }) {
                     onClick={() => {
                         // Toggle mode between dark and bright
                         setMode(!mode)
-                        setBg({ background: !mode ? '#0d1010' : '#f0f0f0', fill: !mode ? '#f0f0f0' : '#202020' })
+                        // setBg({ background: !mode ? '#0d1010' : '#f0f0f0', fill: !mode ? '#f0f0f0' : '#202020' })
                     }}>
-                    <sphereBufferGeometry args={[1.5, 192, 192]} />
+                    <sphereBufferGeometry args={[0.9, 192, 192]} />
                     <AnimatedMaterial color={color} envMapIntensity={env} clearcoat={coat} clearcoatRoughness={0} metalness={0.1} />
                 </a.mesh>
                 <Environment preset="warehouse" />
-                <ContactShadows rotation={[Math.PI / 2, 0, 0]} position={[0, -1.6, 0]} opacity={0.4} width={15} height={15} blur={2.5} far={1.6} />
+                {/*<ContactShadows rotation={[Math.PI / 2, 0, 0]} position={[0, -1.6, 0]} opacity={0.4} width={15} height={15} blur={2.5} far={1.6} />*/}
             </Suspense>
         </>
     )
