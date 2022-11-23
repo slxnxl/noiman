@@ -7,6 +7,8 @@ import InfoBlock from "../components/Info_block";
 import ProfileBlock from "../components/profile_block";
 import ProjectBlock from "../components/project_peview";
 import InfoBlockGrid from "../components/Info_block_grid";
+import HeaderGrid from "../components/header_grid";
+import TitleTextGrid from "../components/title_text_grid";
 
 export default function Home() {
   return (
@@ -17,9 +19,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header></Header>
+      {/* <Header></Header> */}
+      <HeaderGrid/>
       <main className={styles.main}>
           {/* <TitleText></TitleText> */}
+          <TitleTextGrid/>
       </main>
         <InfoBlockGrid/>
         <InfoBlock></InfoBlock>

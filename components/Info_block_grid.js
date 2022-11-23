@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function InfoBlockGrid () {
     return(
 
-        <div className="grid lg:grid-cols-4 gap-4 font-normal text-xl gap-8 lg:gap-x-5 lg:gap-y-16 sm:gap-y-6 grid-flow-dense sm:grid-cols-1" >
+        <div className="grid lg:grid-cols-4 gap-4 font-normal text-xl gap-8 lg:gap-x-5 lg:gap-y-16 sm:gap-y-6 grid-flow-dense sm:grid-cols-1 text-lg" >
             <p className="">Information</p>
             <p className="">Bella Noiman <br/> Designer / Art director<br/><br/>
                 hello@bellanoiman.com</p>
