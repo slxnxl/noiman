@@ -10,6 +10,19 @@ import { a } from '@react-spring/three'
 const AnimatedMaterial = a(MeshDistortMaterial)
 
 export default function Scene({ setBg }) {
+    const pozSphere = () =>  window?.screen.width < 500 ? [0, 90] : [2, 50]; // set setting pozitions sphere and camera for adaptive
+    const useWidth = () => {
+        const [width, setWidth] = useState(0); // default width, detect on server.
+        const handleResize = () => setWidth(window.innerWidth);
+        useEffect(() => {
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }, [handleResize]);
+        return width;
+    };
+
+    console.log("pz", pozSphere());
+    console.log("useWidth ", useWidth());
     const sphere = useRef()
     const light = useRef()
     const [mode, setMode] = useState(false)
@@ -20,7 +33,7 @@ export default function Scene({ setBg }) {
         document.body.style.cursor = hovered
             ? 'none'
             : `url('data:image/svg+xml;base64,${btoa(
-                '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="10" fill="black"/></svg>'
+                '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="5" fill="black"/></svg>'
             )}'), auto`
     }, [hovered])
 
@@ -54,7 +67,7 @@ export default function Scene({ setBg }) {
 
     return (
         <>
-            <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={45}>
+            <PerspectiveCamera makeDefault position={[pozSphere()[0], 0, 4]} fov={pozSphere()[1]}>
                 <a.ambientLight intensity={ambient} />
                 <a.pointLight ref={light} position-z={-15} intensity={env} color="white" />
             </PerspectiveCamera>
@@ -70,7 +83,7 @@ export default function Scene({ setBg }) {
                         setMode(!mode)
                         // setBg({ background: !mode ? '#0d1010' : '#f0f0f0', fill: !mode ? '#f0f0f0' : '#202020' })
                     }}>
-                    <sphereBufferGeometry args={[0.9, 192, 192]} />
+                    <sphereBufferGeometry args={[1, 192, 192]} />
                     <AnimatedMaterial color={color} envMapIntensity={env} clearcoat={coat} clearcoatRoughness={0} metalness={0.1} />
                 </a.mesh>
                 <Environment preset="warehouse" />
