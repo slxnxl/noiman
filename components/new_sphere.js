@@ -10,6 +10,19 @@ import { a } from '@react-spring/three'
 const AnimatedMaterial = a(MeshDistortMaterial)
 
 export default function Scene({ setBg }) {
+    const pozSphere = () =>  window?.screen.width < 500 ? [0, 90] : [2, 50]; // set setting pozitions sphere and camera for adaptive
+    const useWidth = () => {
+        const [width, setWidth] = useState(0); // default width, detect on server.
+        const handleResize = () => setWidth(window.innerWidth);
+        useEffect(() => {
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }, [handleResize]);
+        return width;
+    };
+
+    console.log("pz", pozSphere());
+    console.log("useWidth ", useWidth());
     const sphere = useRef()
     const light = useRef()
     const [mode, setMode] = useState(false)
@@ -54,7 +67,7 @@ export default function Scene({ setBg }) {
 
     return (
         <>
-            <PerspectiveCamera makeDefault position={[2, 0, 4]} fov={50}>
+            <PerspectiveCamera makeDefault position={[pozSphere()[0], 0, 4]} fov={pozSphere()[1]}>
                 <a.ambientLight intensity={ambient} />
                 <a.pointLight ref={light} position-z={-15} intensity={env} color="white" />
             </PerspectiveCamera>

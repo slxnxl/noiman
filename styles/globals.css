@@ -33,3 +33,7 @@ main {
   flex: 1;
   height: 100%;
 }
+
+h1 {
+  pointer-events: none;
+}
