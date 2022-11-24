@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { Suspense, useEffect, useState, useRef } from 'react'
+import React, {Suspense, useEffect, useState, useRef, useCallback} from 'react'
 import { useFrame } from "@react-three/fiber";
 import { PerspectiveCamera, Environment, MeshDistortMaterial, ContactShadows } from '@react-three/drei'
 import { useSpring } from '@react-spring/core'
@@ -10,19 +10,33 @@ import { a } from '@react-spring/three'
 const AnimatedMaterial = a(MeshDistortMaterial)
 
 export default function Scene({ setBg }) {
-    const pozSphere = () =>  window?.screen.width < 500 ? [0, 90] : [2, 50]; // set setting pozitions sphere and camera for adaptive
-    const useWidth = () => {
-        const [width, setWidth] = useState(0); // default width, detect on server.
-        const handleResize = () => setWidth(window.innerWidth);
+    const pozSphere = () =>  window?.screen.width < 500 ? [0, 90] : [2, 50]; // set settings position sphere and camera for adaptive
+
+    // const useWidth = () => {
+    //     const [width, setWidth] = useState(0); // default width, detect on server.
+    //     const handleResize = () => setWidth(window.innerWidth);
+    //     useCallback(() => {
+    //         window.addEventListener('resize', handleResize);
+    //         return () => window.removeEventListener('resize', handleResize);
+    //     }, []);
+    //     return width;
+    // };
+
+    const useWindowSize = () => {
+        const [windowSize, setWindowSize] = useState(window.innerWidth);
+        const handleResize = useCallback(() => setWindowSize(window.innerWidth), [setWindowSize]);
+
         useEffect(() => {
             window.addEventListener('resize', handleResize);
             return () => window.removeEventListener('resize', handleResize);
-        }, [handleResize]);
-        return width;
+        }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+        return windowSize;
     };
 
     console.log("pz", pozSphere());
-    console.log("useWidth ", useWidth());
+    console.log("useWidth ", useWindowSize());
+
     const sphere = useRef()
     const light = useRef()
     const [mode, setMode] = useState(false)
