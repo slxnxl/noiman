@@ -10,7 +10,7 @@ import { a } from '@react-spring/three'
 const AnimatedMaterial = a(MeshDistortMaterial)
 
 export default function Scene({ setBg }) {
-    const pozSphere = () =>  window?.screen.width < 500 ? [0, 90] : [2, 50]; // set settings position sphere and camera for adaptive
+    const pozSphere = () =>  window?.screen.width < 400 ? [0, 90] : [2, 50]; // set settings position sphere and camera for adaptive
 
     // const useWidth = () => {
     //     const [width, setWidth] = useState(0); // default width, detect on server.
