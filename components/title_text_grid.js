@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 
 export default function TitleTextGrid() {
     return (
-        <div className="grid lg:grid-cols-4 gap-4 font-normal text-xl gap-8 lg:gap-x-5 lg:gap-y-16 sm:gap-y-6 grid-flow-dense sm:grid-cols-1 text-lg" >
+        <div className="grid grid-cols-4 gap-4 font-normal text-xl gap-8 gap-x-5 gap-y-16 grid-flow-dense text-lg" >
             {/* TODO сделать через absolute*/}
             <div className="absolute inset-0 z-0">
                     <Canvas className="canvas " pixelRatio={[1, 1]}>
