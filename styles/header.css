@@ -32,14 +32,17 @@
 .burger {
     position: fixed;
     display: flex;
-    right: 52px;
-    top: 44px;
+    right: 24px;
+    top: 32px;
     outline: none;
     border: 0px;
     padding: 0px;
     background: transparent;
     transition: all 250ms ease-out;
     cursor: pointer;
+    width: 54px;
+    height: 34px;
+    padding: 12px;
   }
 
   .burger:before, .burger:after {
