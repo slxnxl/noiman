@@ -73,7 +73,7 @@ export default function Scene({ setBg }) {
             coat: mode && !hovered ? 0.02 : 1,
             ambient: mode && !hovered ? 1.5 : 0.5,
             env: mode && !hovered ? 0.275 : 1,
-            color: hovered ? '#000000' : mode ? '#202020' : 'white',
+            // color: hovered ? '#000000' : mode ? '#202020' : 'white',
             config: (n) => n === 'wobble' && hovered && { mass: 2, tension: 1000, friction: 10 }
         },
         [mode, hovered]
@@ -92,6 +92,7 @@ export default function Scene({ setBg }) {
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
                     position={[0, 0, 0]}
+                    //TODO убрать клик со сферы
                     onClick={() => {
                         // Toggle mode between dark and bright
                         setMode(!mode)
