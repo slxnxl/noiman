@@ -4,7 +4,8 @@ const nextConfig = {
   swcMinify: true,
   basePath: '/public',
   images: {
-    unoptimized: true
+    unoptimized: true,
+    loader: "custom"
   }
 }
 
