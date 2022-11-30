@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
       {/* <Header></Header> */}
       <HeaderGrid/>
-      <main className="h-[80vh] flex p-0 flex-1 flex-col justify-center items-end relative md:h-[50vh] md:justify-end md:pb-12">
+      <main className="h-[80vh] flex p-0 flex-1 flex-col justify-center items-end relative md:h-[60vh] md:justify-end md:pb-12">
           {/* <TitleText></TitleText> */}
           <TitleTextGrid/>
       </main>
