@@ -2,10 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  basePath: '/public',
   images: {
-    unoptimized: true,
-    loader: "custom"
+    unoptimized: true
   }
 }
 
