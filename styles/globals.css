@@ -5,7 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*TODO добавть медленную прокрутку скролла*/
+/*TODO добавить медленную прокрутку скролла*/
 html,
 body {
   padding: 0;
