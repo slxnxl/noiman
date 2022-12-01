@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import TitleText from "../components/title_text";
 import InfoBlock from "../components/Info_block";
@@ -9,6 +9,7 @@ import ProjectBlock from "../components/project_peview";
 import InfoBlockGrid from "../components/Info_block_grid";
 import HeaderGrid from "../components/header_grid";
 import TitleTextGrid from "../components/title_text_grid";
+import SliderProjects from "../components/slider_projects";
 
 export default function Home() {
   return (
@@ -19,16 +20,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Header></Header> */}
-      <HeaderGrid/>
+      <HeaderGrid />
       <main className="h-[80vh] flex p-0 flex-1 flex-col justify-center items-end relative md:h-[60vh] md:justify-end md:pb-12">
-          {/* <TitleText></TitleText> */}
-          <TitleTextGrid/>
+        {/* <TitleText></TitleText> */}
+        <TitleTextGrid />
       </main>
-        <InfoBlockGrid/>
-        <ProjectBlock></ProjectBlock>
-      <footer className={styles.footer}>
-        футер
-      </footer>
+      <InfoBlockGrid />
+      {/*<ProjectBlock></ProjectBlock>*/}
+      <SliderProjects></SliderProjects>
+      <footer className={styles.footer}>футер</footer>
     </div>
-  )
+  );
 }
