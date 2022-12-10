@@ -4,6 +4,7 @@ import Image from "next/image";
 
 export default function SliderProjects() {
   const [project, setProject] = useState(0);
+  const [disappearance, setIsDisappearance] = useState(false);
   console.log(project);
 
   // TODO может быть сделать бесконечную прокрутку
@@ -11,20 +12,23 @@ export default function SliderProjects() {
   const increase = () => {
     // console.log("pr list length", pr_list.length);
     if (project < pr_list.length - 1) {
+      setIsDisappearance(false);
       setProject((count) => count + 1);
+      // setTimeout(() => {
+      //   setIsDisappearance(false);
+      // }, 5000);
     }
   };
 
   //decrease counter
   const decrease = () => {
     if (project > 0) {
+      setIsDisappearance(false);
       setProject((count) => count - 1);
+      // setTimeout(() => {
+      //   setIsDisappearance(false);
+      // }, 5000);
     }
-  };
-
-  //reset counter
-  const reset = () => {
-    setProject(0);
   };
 
   const pr_list = [
@@ -42,14 +46,21 @@ export default function SliderProjects() {
   ];
 
   // change src and add effect
-  useEffect(() => {}, [project]);
+  useEffect(() => {
+    setTimeout(() => setIsDisappearance(true));
+  }, [project]);
 
   // console.log("target ", project);
   //onClick={(index) => setTarget(index)
   return (
     <div className="mt-5 mb-5">
       <hr className="mb-5" />
-      <div className="flex justify-between md:flex-col content_animate">
+      <div
+        className={
+          "foo flex justify-between md:flex-col " +
+          (disappearance ? "content_animate" : "")
+        }
+      >
         <div className="about flex flex-col md:flex-row justify-between md:mb-5">
           <p>
             {pr_list[project].title}
