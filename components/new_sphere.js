@@ -123,12 +123,12 @@ export default function Scene({ setBg }) {
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
           position={[0, 0, 0]}
-          // TODO убрать клик со сферы
-          onClick={() => {
-            // Toggle mode between dark and bright
-            setMode(!mode);
-            // setBg({ background: !mode ? '#0d1010' : '#f0f0f0', fill: !mode ? '#f0f0f0' : '#202020' })
-          }}
+          // onClick={() => {
+          //   // Toggle mode between dark and bright
+          //   setMode(!mode);
+          //   // setBg({ background: !mode ? '#0d1010' : '#f0f0f0', fill: !mode ? '#f0f0f0' : '#202020' })
+          // }
+          //}
         >
           <sphereBufferGeometry args={[1, 192, 192]} />
           <AnimatedMaterial
