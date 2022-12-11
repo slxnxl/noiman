@@ -8,5 +8,18 @@
 }
 
 .content_animate {
-    animation: fade-in 3s ease;
+    animation: fade-in 1s ease;
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.content_invisible {
+    animation: fade-out 0.5s ease;
 }
