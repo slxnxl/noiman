@@ -41,7 +41,6 @@ export default function SliderProjects() {
     },
   ];
 
-  // наладить работу с классами для эффектов
   useEffect(() => {
     setTimeout(() => {
       setIsDisappearance(true);
@@ -79,6 +78,7 @@ export default function SliderProjects() {
             <br />
           </p>
         </div>
+        {/*TODO добавить фиксированный размер для изображения*/}
         <Image
           src={pr_list[project].src_img}
           className="ml-auto mb-3"
@@ -88,13 +88,16 @@ export default function SliderProjects() {
         />
       </div>
       <div className="flex justify-between max-w-[260px] ml-auto md:mr-auto">
+        {/*TODO реализовать предзагрузку изображения фона кнопки*/}
         <button
+          rel="preload"
           className="h-12 w-28 border-solid border-2 border-black hover:bg-[url('/grad.jpeg')] hover:bg-cover hover:border-none rounded-full hover:text-white outline-offset-2"
           onClick={() => decrease()}
         >
           <div className="text-3xl ">&larr;</div>
         </button>
         <button
+          rel="preload"
           className="h-12 w-28 border-solid border-2 border-black hover:bg-[url('/grad.jpeg')] hover:bg-cover hover:border-none rounded-full hover:text-white outline-offset-2"
           onClick={() => increase()}
         >
