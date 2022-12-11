@@ -13,7 +13,7 @@ export default function SliderProjects() {
       setIsDisappearance(false);
       setTimeout(() => {
         setProject((count) => count + 1);
-      }, 500);
+      }, 400);
     }
   };
 
@@ -23,7 +23,7 @@ export default function SliderProjects() {
       setIsDisappearance(false);
       setTimeout(() => {
         setProject((count) => count - 1);
-      }, 500);
+      }, 400);
     }
   };
 
