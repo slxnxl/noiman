@@ -49,13 +49,44 @@ export default function SliderProjects() {
       setIsDisappearance(true);
     });
   }, [project]);
+
+  // preload images in gallery
+  // const casheImages = async (pr_list) => {
+  //   const promises = await pr_list.map((item) => {
+  //     return new Promise(function (resolve, reject) {
+  //       const img = new Image();
+  //
+  //       img.src = item.src_img;
+  //       img.onload = resolve();
+  //       img.onerror = reject();
+  //     });
+  //   });
+  //   await Promise.all(promises)
+  // }
+
+  // TODO зачем грузит 2 sampla.svg????
+  // const casheImages1 = (async function () {
+  //   const img_list = ["./grad.jpeg", "./sample.svg"]
+  //   const promises = await img_list.map((item) => {
+  //     return new Promise(function (resolve, reject) {
+  //       const img = new Image();
+  //
+  //       img.src = item;
+  //       img.onload = resolve();
+  //       img.onerror = reject();
+  //     });
+  //   });
+  //   await Promise.all(promises)
+  // })();
+
+
   // TODO сделать 2 столбца в мобилке и распределить по ним все
   return (
     <div className="mt-5 mb-5">
       <hr className="mb-5" />
       <div
         className={
-          "foo grid w-full grid-cols-4 grid-flow-dense gap-4 font-normal text-xl gap-8 gap-x-5 gap-y-16 md:gap-y-6  md:grid-cols-1 text-lg md:flex md:flex-col " +
+          "foo grid w-full grid-cols-4 grid-flow-dense gap-4 gap-8 gap-x-5 gap-y-16 md:gap-y-6  md:grid-cols-1 text-lg md:flex md:flex-col " +
           (disappearance
             ? "content_animate"
             : "" + (disappearance ? "" : "content_invisible"))
@@ -82,7 +113,8 @@ export default function SliderProjects() {
         <div className="image-container md:col-start-1 col-start-2 col-span-3 bg-orange-300">
           <Image
             src={pr_list[project].src_img}
-            className=" object-cover w-100% h-[80vh] md:h-[50vh] "
+            rel="preload"
+            className=" object-cover w-100% h-[80vh] max-h-[600px] md:h-[50vh] "
             alt="project1"
             width="1080"
             height="361"
