@@ -31,12 +31,15 @@ export default function SliderProjects() {
     {
       title: "project_0",
       discription: "asdasda sdasd asd asd asd asdasdkj asd akjsndkj anskjdn",
-      role: ["one", "two", "three"],
+      role: ["Concept", "Branding", "Design", "Art Direction"],
+      product: ["Website", "Digital Experience", "Identity"],
       src_img: "./sample.svg",
     },
     {
       title: "project_1",
       discription: "asasda sdasd asd asd asd asdasdkj asd akjsndkj anskjdn",
+      role: ["one", "two", "three"],
+      product: ["one", "two", "three"],
       src_img: "./grad.jpeg",
     },
   ];
@@ -59,35 +62,33 @@ export default function SliderProjects() {
         }
       >
         <div className="about flex flex-col md:flex-row justify-between md:mb-5">
-          <p>
+          {/*<br />*/}
+          <ul className="title_project_block display: inline-block">
             {pr_list[project].title}
-            <br />
-            <p className="text-[#BFBFBF]">Website</p>
-            <p className="text-[#BFBFBF]">Digital Experience</p>
-            <p className="text-[#BFBFBF]">Identity</p>
-          </p>
-          <p>
+            {pr_list[project].product.map((item) => (
+              //   TODO загуглить что это такое
+              // eslint-disable-next-line react/jsx-key
+              <li className="text-[#BFBFBF]">{item}</li>
+            ))}
+          </ul>
+          <ul>
             <p className="text-[#BFBFBF]">My role</p>
-            Concept
-            <br />
-            Branding
-            <br />
-            Design
-            <br />
-            Art Direction
-            <br />
-          </p>
+            {pr_list[project].role.map((item) => (
+              // eslint-disable-next-line react/jsx-key
+              <li>{item}</li>
+            ))}
+          </ul>
         </div>
-        {/*TODO добавить фиксированный размер для изображения*/}
+        {/*TODO сделать fill и формат для мобильных и сделать прелоад*/}
         <Image
           src={pr_list[project].src_img}
-          className="ml-auto mb-3"
+          className="ml-auto object-cover w-[842px] h-[500px]"
           alt="project1"
           width="842"
           height="361"
         />
       </div>
-      <div className="flex justify-between max-w-[260px] ml-auto md:mr-auto">
+      <div className="flex justify-between max-w-[260px] ml-auto mt-3 md:mr-auto">
         {/*TODO реализовать предзагрузку изображения фона кнопки*/}
         <button
           rel="preload"
