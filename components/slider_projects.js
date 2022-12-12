@@ -55,13 +55,13 @@ export default function SliderProjects() {
       <hr className="mb-5" />
       <div
         className={
-          "foo grid w-full grid-cols-4 grid-flow-dense gap-4 gap-8 gap-x-5 gap-y-16 md:gap-y-6  md:grid-cols-1 " +
+          "foo grid w-full grid-cols-4 grid-flow-dense gap-4 font-normal text-xl gap-8 gap-x-5 gap-y-16 md:gap-y-6  md:grid-cols-1 text-lg md:flex md:flex-col " +
           (disappearance
             ? "content_animate"
             : "" + (disappearance ? "" : "content_invisible"))
         }
       >
-        <div className="about col-start-1 col-span-1 flex flex-col md:flex-row justify-between md:mb-5">
+        <div className="about md:col-start-1 col-start-1 col-span-1 flex flex-col md:flex-row justify-between md:mb-5">
           <ul className="title_project_block display: inline-block">
             {pr_list[project].title}
             {pr_list[project].product.map((item) => (
@@ -82,7 +82,7 @@ export default function SliderProjects() {
         <div className="image-container md:col-start-1 col-start-2 col-span-3 bg-orange-300">
           <Image
             src={pr_list[project].src_img}
-            className=" object-cover w-100% h-[80vh] md:h-[50vh]"
+            className=" object-cover w-100% h-[80vh] md:h-[50vh] "
             alt="project1"
             width="1080"
             height="361"
