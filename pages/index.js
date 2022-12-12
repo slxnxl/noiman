@@ -10,6 +10,7 @@ import InfoBlockGrid from "../components/Info_block_grid";
 import HeaderGrid from "../components/header_grid";
 import TitleTextGrid from "../components/title_text_grid";
 import SliderProjects from "../components/slider_projects";
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <InfoBlockGrid />
       {/*<ProjectBlock></ProjectBlock>*/}
       <SliderProjects></SliderProjects>
+      <Footer></Footer>
       <footer className={styles.footer}>футер</footer>
     </div>
   );

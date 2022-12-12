@@ -39,7 +39,7 @@ export default function SliderProjects() {
       title: "project_1",
       discription: "asasda sdasd asd asd asd asdasdkj asd akjsndkj anskjdn",
       role: ["one", "two", "three"],
-      product: ["one", "two", "three"],
+      product: ["one", "two", "three", "kek"],
       src_img: "./grad.jpeg",
     },
   ];
@@ -49,20 +49,19 @@ export default function SliderProjects() {
       setIsDisappearance(true);
     });
   }, [project]);
-
+  // TODO сделать 2 столбца в мобилке и распределить по ним все
   return (
     <div className="mt-5 mb-5">
       <hr className="mb-5" />
       <div
         className={
-          "foo flex justify-between md:flex-col " +
+          "foo grid w-full grid-cols-4 grid-flow-dense gap-4 gap-8 gap-x-5 gap-y-16 md:gap-y-6  md:grid-cols-1 " +
           (disappearance
             ? "content_animate"
             : "" + (disappearance ? "" : "content_invisible"))
         }
       >
-        <div className="about flex flex-col md:flex-row justify-between md:mb-5">
-          {/*<br />*/}
+        <div className="about col-start-1 col-span-1 flex flex-col md:flex-row justify-between md:mb-5">
           <ul className="title_project_block display: inline-block">
             {pr_list[project].title}
             {pr_list[project].product.map((item) => (
@@ -71,7 +70,7 @@ export default function SliderProjects() {
               <li className="text-[#BFBFBF]">{item}</li>
             ))}
           </ul>
-          <ul>
+          <ul className="md:text-right">
             <p className="text-[#BFBFBF]">My role</p>
             {pr_list[project].role.map((item) => (
               // eslint-disable-next-line react/jsx-key
@@ -79,14 +78,16 @@ export default function SliderProjects() {
             ))}
           </ul>
         </div>
-        {/*TODO сделать fill и формат для мобильных и сделать прелоад*/}
-        <Image
-          src={pr_list[project].src_img}
-          className="ml-auto object-cover w-[842px] h-[500px]"
-          alt="project1"
-          width="842"
-          height="361"
-        />
+        {/*TODO подумать как улучшить и сделать прелоад*/}
+        <div className="image-container md:col-start-1 col-start-2 col-span-3 bg-orange-300">
+          <Image
+            src={pr_list[project].src_img}
+            className=" object-cover w-100% h-[80vh] md:h-[50vh]"
+            alt="project1"
+            width="1080"
+            height="361"
+          />
+        </div>
       </div>
       <div className="flex justify-between max-w-[260px] ml-auto mt-3 md:mr-auto">
         {/*TODO реализовать предзагрузку изображения фона кнопки*/}
