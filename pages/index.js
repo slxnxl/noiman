@@ -29,8 +29,8 @@ export default function Home() {
       <InfoBlockGrid />
       {/*<ProjectBlock></ProjectBlock>*/}
       <SliderProjects></SliderProjects>
-      <Footer></Footer>
-      <footer className={styles.footer}>футер</footer>
+      <Footer ></Footer>
+      {/*<footer className={styles.footer}>футер</footer>*/}
     </div>
   );
 }

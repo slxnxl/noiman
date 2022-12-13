@@ -123,6 +123,7 @@ export default function SliderProjects() {
       </div>
       <div className="flex justify-between max-w-[260px] ml-auto mt-3 md:mr-auto">
         {/*TODO реализовать предзагрузку изображения фона кнопки*/}
+        {/*TODO сделать кнопки как на верстке*/}
         <button
           rel="preload"
           className="h-12 w-28 border-solid border-2 border-black hover:bg-[url('/grad.jpeg')] hover:bg-cover hover:border-none rounded-full hover:text-white outline-offset-2"
