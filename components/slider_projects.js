@@ -27,6 +27,12 @@ export default function SliderProjects() {
     }
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsDisappearance(true);
+    });
+  }, [project]);
+
   const pr_list = [
     {
       title: "project_0",
@@ -44,18 +50,14 @@ export default function SliderProjects() {
     },
   ];
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsDisappearance(true);
-    });
-  }, [project]);
+  const [load, setLoading] = useState(false);
 
   // preload images in gallery
   // const casheImages = async (pr_list) => {
   //   const promises = await pr_list.map((item) => {
   //     return new Promise(function (resolve, reject) {
-  //       const img = new Image();
-  //
+  //         const img = new Image();
+
   //       img.src = item.src_img;
   //       img.onload = resolve();
   //       img.onerror = reject();
@@ -64,7 +66,6 @@ export default function SliderProjects() {
   //   await Promise.all(promises)
   // }
 
-  // TODO зачем грузит 2 sampla.svg????
   // const casheImages1 = (async function () {
   //   const img_list = ["./grad.jpeg", "./sample.svg"]
   //   const promises = await img_list.map((item) => {
@@ -78,7 +79,6 @@ export default function SliderProjects() {
   //   });
   //   await Promise.all(promises)
   // })();
-
 
   // TODO сделать 2 столбца в мобилке и распределить по ним все
   return (
@@ -110,6 +110,7 @@ export default function SliderProjects() {
           </ul>
         </div>
         {/*TODO подумать как улучшить и сделать прелоад*/}
+        {/*При использовании fill родительский элемент должен иметь position: relative*/}
         <div className="image-container md:col-start-1 col-start-2 col-span-3 bg-orange-300">
           <Image
             src={pr_list[project].src_img}
