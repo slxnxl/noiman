@@ -52,6 +52,14 @@ export default function SliderProjects() {
 
   const [load, setLoading] = useState(false);
 
+  // const casheImage = (async () => {
+  //   const img_list = ["./grad.jpeg", "./sample.svg"];
+  //   img_list.map((item) => {
+  //     const img = new Image();
+  //     img.src = item;
+  //   });
+  // })();
+
   // preload images in gallery
   // const casheImages = async (pr_list) => {
   //   const promises = await pr_list.map((item) => {
@@ -67,18 +75,27 @@ export default function SliderProjects() {
   // }
 
   // const casheImages1 = (async function () {
-  //   const img_list = ["./grad.jpeg", "./sample.svg"]
-  //   const promises = await img_list.map((item) => {
+  //   const img_list = ["./grad.jpeg", "./sample.svg"];
+  //   const promises = img_list.map((item) => {
   //     return new Promise(function (resolve, reject) {
+  //       console.log("item: ", item);
   //       const img = new Image();
-  //
+  //       console.log("img_class: ", img);
   //       img.src = item;
   //       img.onload = resolve();
   //       img.onerror = reject();
+  //       console.log("img_class_after: ", img);
   //     });
   //   });
-  //   await Promise.all(promises)
+  //   await Promise.all(promises);
   // })();
+
+  // componentDidMount() {
+  //   this.props.pictures.forEach((picture) => {
+  //     const img = new Image();
+  //     img.src = picture.fileName;
+  //   });
+  // }
 
   // TODO сделать 2 столбца в мобилке и распределить по ним все
   return (

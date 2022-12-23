@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import TitleText from "../components/title_text";
@@ -13,6 +12,14 @@ import SliderProjects from "../components/slider_projects";
 import Footer from "../components/footer";
 
 export default function Home() {
+  //   тестовый прелоад изображений
+  const casheImage = (async () => {
+    const img_list = ["./grad.jpeg", "./sample.svg"];
+    img_list.map((item) => {
+      const img = new Image();
+      img.src = item;
+    });
+  })();
   return (
     <div className={styles.container}>
       <Head>

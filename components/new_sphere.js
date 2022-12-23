@@ -21,8 +21,9 @@ import { a } from "@react-spring/three";
 const AnimatedMaterial = a(MeshDistortMaterial);
 
 export default function Scene({ setBg }) {
+  // TODO понять надо ли делать перерисовку сферы при уменьшении окна браузера (не через отзывчивое устройство)
   const pozSphere = (function () {
-    return window?.screen.width < 400 ? [0, -1, 70] : [2, 0, 50];
+    return window?.screen.width < 767 ? [0, -1, 70] : [2, 0, 50];
   })();
   // set settings position sphere and camera for adaptive
   // const useWidth = () => {
