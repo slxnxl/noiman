@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Image from "next/image";
+import preloadImages from "../utils/preload";
 
 export default function SliderProjects() {
   const [project, setProject] = useState(0);
@@ -50,7 +51,9 @@ export default function SliderProjects() {
     },
   ];
 
-  const [load, setLoading] = useState(false);
+  // const [load, setLoading] = useState(false);
+  const img_list = ["./grad.jpeg", "./sample.svg"];
+  const preloadGalleryImg = preloadImages(img_list);
 
   // const casheImage = (async () => {
   //   const img_list = ["./grad.jpeg", "./sample.svg"];

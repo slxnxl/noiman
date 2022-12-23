@@ -12,14 +12,6 @@ import SliderProjects from "../components/slider_projects";
 import Footer from "../components/footer";
 
 export default function Home() {
-  //   тестовый прелоад изображений
-  const casheImage = (async () => {
-    const img_list = ["./grad.jpeg", "./sample.svg"];
-    img_list.map((item) => {
-      const img = new Image();
-      img.src = item;
-    });
-  })();
   return (
     <div className={styles.container}>
       <Head>
