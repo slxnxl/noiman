@@ -6,6 +6,13 @@ import preloadImages from "../utils/preload";
 export default function SliderProjects() {
   const [project, setProject] = useState(0);
   const [disappearance, setIsDisappearance] = useState(false);
+  // const [loaded, setIsLoaded] = useState(false);
+
+  const img_list = ["./grad.jpeg", "./sample.svg"];
+
+  useEffect(() => {
+    const preloadGalleryImg = preloadImages(img_list);
+  }, []);
 
   // TODO может быть сделать бесконечную прокрутку
   //increase counter
@@ -28,10 +35,16 @@ export default function SliderProjects() {
     }
   };
 
+  // TODO сделать проверку загрузилось ли фото
   useEffect(() => {
-    setTimeout(() => {
-      setIsDisappearance(true);
-    });
+    //   if (loaded === false) {
+    //     // добавить цикл для попыток загрузки изображений и проверки загрузки
+    //     const statusLoadImages = preloadImages(img_list)
+    //     if (statusLoadImages.loaded()) {
+    //
+    //     }
+    //   }
+    setIsDisappearance(true);
   }, [project]);
 
   const pr_list = [
@@ -52,8 +65,6 @@ export default function SliderProjects() {
   ];
 
   // const [load, setLoading] = useState(false);
-  const img_list = ["./grad.jpeg", "./sample.svg"];
-  const preloadGalleryImg = preloadImages(img_list);
 
   // const casheImage = (async () => {
   //   const img_list = ["./grad.jpeg", "./sample.svg"];
@@ -144,6 +155,7 @@ export default function SliderProjects() {
       </div>
       <div className="flex justify-between max-w-[260px] ml-auto mt-3 md:mr-auto">
         {/*TODO реализовать предзагрузку изображения фона кнопки*/}
+
         {/*TODO сделать кнопки как на верстке*/}
         <button
           rel="preload"
