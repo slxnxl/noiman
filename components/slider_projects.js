@@ -10,6 +10,7 @@ export default function SliderProjects() {
 
   const img_list = ["./grad.jpeg", "./sample.svg"];
 
+  // preload images in gallary
   useEffect(() => {
     const preloadGalleryImg = preloadImages(img_list);
   }, []);
