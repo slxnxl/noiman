@@ -1,5 +1,6 @@
 @import url("./animate_slider.css");
 @import url("./header.css");
+@import url("./smooth_scroll.css");
 
 @tailwind base;
 @tailwind components;

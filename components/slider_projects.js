@@ -141,7 +141,6 @@ export default function SliderProjects() {
             ))}
           </ul>
         </div>
-        {/*TODO подумать как улучшить и сделать прелоад*/}
         {/*При использовании fill родительский элемент должен иметь position: relative*/}
         <div className="image-container md:col-start-1 col-start-2 col-span-3 bg-orange-300">
           <Image
@@ -155,8 +154,6 @@ export default function SliderProjects() {
         </div>
       </div>
       <div className="flex justify-between max-w-[260px] ml-auto mt-3 md:mr-auto">
-        {/*TODO реализовать предзагрузку изображения фона кнопки*/}
-
         {/*TODO сделать кнопки как на верстке*/}
         <button
           rel="preload"

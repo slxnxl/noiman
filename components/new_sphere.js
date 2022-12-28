@@ -20,21 +20,26 @@ import { a } from "@react-spring/three";
 // but it can also handle 3rd–party objs, just wrap them in "a".
 const AnimatedMaterial = a(MeshDistortMaterial);
 
+// TODO убрать setBg из функции
 export default function Scene({ setBg }) {
   // TODO понять надо ли делать перерисовку сферы при уменьшении окна браузера (не через отзывчивое устройство)
   const pozSphere = (function () {
     return window?.screen.width < 767 ? [0, -1, 70] : [2, 0, 50];
   })();
   // set settings position sphere and camera for adaptive
-  // const useWidth = () => {
-  //     const [width, setWidth] = useState(0); // default width, detect on server.
-  //     const handleResize = () => setWidth(window.innerWidth);
-  //     useCallback(() => {
-  //         window.addEventListener('resize', handleResize);
-  //         return () => window.removeEventListener('resize', handleResize);
-  //     }, []);
-  //     return width;
-  // };
+  // TODO понять надо ли оно тут вообще
+  const useWidth = () => {
+    const [width, setWidth] = useState(0); // default width, detect on server.
+    const handleResize = () =>
+      setWidth(typeof window !== "undefined" && window.innerWidth);
+    useCallback(() => {
+      window.addEventListener("resize", handleResize);
+      return () =>
+        typeof window !== "undefined" &&
+        window.removeEventListener("resize", handleResize);
+    }, []);
+    return width;
+  };
 
   const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);
