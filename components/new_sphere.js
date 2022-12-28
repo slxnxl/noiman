@@ -31,6 +31,7 @@ export default function Scene({ setBg }) {
   const useWidth = () => {
     const [width, setWidth] = useState(0); // default width, detect on server.
     const handleResize = () =>
+      // TODO тут чета ругается
       setWidth(typeof window !== "undefined" && window.innerWidth);
     useCallback(() => {
       window.addEventListener("resize", handleResize);
