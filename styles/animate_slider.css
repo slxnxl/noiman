@@ -23,3 +23,8 @@
 .content_invisible {
     animation: fade-out 0.5s ease;
 }
+
+/*класс для первоначального скрытия элемента на странице*/
+.content_hide {
+    opacity: 0;
+}

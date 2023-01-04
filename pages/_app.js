@@ -1,4 +1,6 @@
 import "../styles/globals.css";
+import HeaderGrid from "../components/header_grid";
+import SmoothScroll from "../utils/smooth_scroll";
 // import React, { useEffect, useRef } from "react";
 // import { Scrollbar } from "smooth-scrollbar-react";
 
@@ -10,31 +12,12 @@ function MyApp({ Component, pageProps }) {
   // }, []);
 
   return (
-    // <div
-    //   style={{
-    //     display: "flex",
-    //     position: "fixed",
-    //     height: "100vh",
-    //     // width: "100vw",
-    //   }}
-    // >
-    //     test smooth-scroll
-    //   <Scrollbar
-    //     // style={{ margin-led: "auto" }}
-    //     damping={0.05}
-    //     thumbMinSize={40}
-    //     renderByPixels={true}
-    //     continuousScrolling={false}
-    //     ref={scrollbar}
-    //     plugins={{
-    //       overscroll: {
-    //         effect: "bounce",
-    //       },
-    //     }}
-    //   >
-    <Component {...pageProps} />
-    //   </Scrollbar>
-    // </div>
+    <div className="px-5 pt-8">
+      <SmoothScroll>
+        <HeaderGrid />
+        <Component {...pageProps} />
+      </SmoothScroll>
+    </div>
   );
 }
 
