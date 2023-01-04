@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import HeaderGrid from "../components/header_grid";
 import SmoothScroll from "../utils/smooth_scroll";
+import { useEffect } from "react";
 // import React, { useEffect, useRef } from "react";
 // import { Scrollbar } from "smooth-scrollbar-react";
 
@@ -10,11 +11,10 @@ function MyApp({ Component, pageProps }) {
   // useEffect(() => {
   //   console.log("scrollbar: ", scrollbar.current);
   // }, []);
-
   return (
-    <div className="px-5 pt-8">
+    <div className="pt-8 px-5 mx-auto">
+      <HeaderGrid />
       <SmoothScroll>
-        <HeaderGrid />
         <Component {...pageProps} />
       </SmoothScroll>
     </div>

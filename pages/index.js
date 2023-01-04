@@ -29,7 +29,7 @@ export default function Home() {
       </Head>
       {/*  TODO переместить header выше для переиспользования на других страницах*/}
       {/* <Header></Header> */}
-      <HeaderGrid />
+      {/*<HeaderGrid />*/}
       <main className="h-[80vh] flex p-0 flex-1 flex-col justify-center items-end relative md:h-[60vh] md:justify-end md:pb-12 ">
         {/* <TitleText></TitleText> */}
         <TitleTextGrid />
