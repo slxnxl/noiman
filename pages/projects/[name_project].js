@@ -7,8 +7,14 @@ import DescImage from "../../components/project_desc_image_video";
 import Footer from "../../components/footer";
 
 // TODO разобраться почему не срабатывает перенос header в апп
+
+// заменить позже на запрос из json
 export default function projectPage({ name_project }) {
   const project = [
+    { type: "image", src: "/grad.jpeg" },
+    { type: "image", src: "/sample.svg" },
+    { type: "image", src: "/grad.jpeg" },
+    { type: "image", src: "/sample.svg" },
     { type: "image", src: "/grad.jpeg" },
     { type: "image", src: "/sample.svg" },
   ];
